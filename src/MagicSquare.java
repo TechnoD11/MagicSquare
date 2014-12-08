@@ -29,24 +29,26 @@ public class MagicSquare {
 		for(int i = 0; i < squareMembers.length; i++){
 			sum += squareMembers[i][0];
 		}
-		for(int i = 0; i < squareMembers.length && !isMagicSquare; i++){
-			for(int j = 0; j < squareMembers.length; j++){
+		System.out.println(sum);
+		for(int i = 0; i < squareMembers.length; i++){
+			for(int j = 0; j < squareMembers[0].length; j++){
 				checkSum += squareMembers[j][i];
+				System.out.println(checkSum);
 			}
 			if(sum != checkSum){
 				isMagicSquare = false;
 			}
+			checkSum = 0;
 		}
-		checkSum = 0;
-		for(int i = 0; i < squareMembers.length && !isMagicSquare; i++){
+		for(int i = 0; i < squareMembers[0].length; i++){
 			for(int j = 0; j < squareMembers.length; j++){
 				checkSum += squareMembers[i][j];
 			}
 			if(sum != checkSum){
 				isMagicSquare = false;
 			}
+			checkSum = 0;
 		}
-		checkSum = 0;
 		
 		return isMagicSquare;
 	}
