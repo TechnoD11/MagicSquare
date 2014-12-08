@@ -55,18 +55,39 @@ public class MagicSquare {
 		for(int k = 0; k < ROWS; k++){
 			while(i != -1 && j != -1){
 				rowVal = (i + k) % ROWS;
-				//System.out.println(rowVal);
 				colVal = (j + k) % COLUMNS;
 				checkSum += squareMembers[rowVal][colVal];
 				i--;
 				j--;
 				System.out.println(checkSum);
 			}
+			if(checkSum != sum){
+				isMagicSquare = false;
+			}
 			i = ROWS - 1;
 			j = COLUMNS - 1;
 			checkSum = 0;
 		}
-		
+		rowVal = 0;
+		colVal = 0;
+		i = 0;
+		j = 0;
+		/*for(int k = 0; k < squareMembers.length; k++){
+			while(i != ROWS && j != COLUMNS){
+				rowVal = (i + k) % ROWS;
+				colVal = (j + k) % COLUMNS;
+				checkSum += squareMembers[rowVal][colVal];
+				i++;
+				j++;
+				//System.out.println(checkSum);
+			}
+			if(checkSum != sum){
+				isMagicSquare = false;
+			}
+			//i = ROWS - 1;
+			//j = COLUMNS - 1;
+			checkSum = 0;
+		}*/
 		return isMagicSquare;
 	}
 }
