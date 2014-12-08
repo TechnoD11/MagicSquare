@@ -33,7 +33,6 @@ public class MagicSquare {
 		for(int i = 0; i < squareMembers.length; i++){
 			for(int j = 0; j < squareMembers[0].length; j++){
 				checkSum += squareMembers[j][i];
-				System.out.println(checkSum);
 			}
 			if(sum != checkSum){
 				isMagicSquare = false;
@@ -47,6 +46,24 @@ public class MagicSquare {
 			if(sum != checkSum){
 				isMagicSquare = false;
 			}
+			checkSum = 0;
+		}
+		int i = ROWS - 1;
+		int j = COLUMNS - 1;
+		int rowVal = 0;
+		int colVal = 0;
+		for(int k = 0; k < ROWS; k++){
+			while(i != -1 && j != -1){
+				rowVal = (i + k) % ROWS;
+				//System.out.println(rowVal);
+				colVal = (j + k) % COLUMNS;
+				checkSum += squareMembers[rowVal][colVal];
+				i--;
+				j--;
+				System.out.println(checkSum);
+			}
+			i = ROWS - 1;
+			j = COLUMNS - 1;
 			checkSum = 0;
 		}
 		
