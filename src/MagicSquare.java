@@ -24,19 +24,25 @@ public class MagicSquare {
 		for(int i = 0; i < squareMembers.length; i++){
 			sum += squareMembers[i][0];
 		}
-		for(int i = 0; i < squareMembers.length; i++){
+		for(int i = 0; i < squareMembers.length && !isMagicSquare; i++){
 			for(int j = 0; j < squareMembers.length; j++){
-				checkSum += squareMembers[j][0];
+				checkSum += squareMembers[j][i];
 			}
 			if(sum != checkSum){
 				isMagicSquare = false;
 			}
 		}
-		for(int i = 0; i < squareMembers.length; i++){
+		checkSum = 0;
+		for(int i = 0; i < squareMembers.length && !isMagicSquare; i++){
 			for(int j = 0; j < squareMembers.length; j++){
-				checkSum += squareMembers[0][j];
+				checkSum += squareMembers[i][j];
+			}
+			if(sum != checkSum){
+				isMagicSquare = false;
 			}
 		}
+		checkSum = 0;
+		
 		return isMagicSquare;
 	}
 }
