@@ -4,21 +4,26 @@
  *
  */
 public class MagicSquare {
-	public int[][] squareMembers;
-	public boolean isMagicSquare;
-	public int sum;
-	public int checkSum;
+	private int[][] squareMembers;
+	private boolean isMagicSquare;
+	private int sum;
+	private int checkSum;
+	private int ROWS;
+	private int COLUMNS;
 	
 	public MagicSquare(int[][] thisArray){
 		squareMembers = thisArray.clone();
 		isMagicSquare = true;
 		sum = 0;
 		checkSum = 0;
+		ROWS = thisArray.length;
+		COLUMNS = thisArray[0].length;
 	}
 	/**
 	 * 
 	 * @return
 	 * TODO: Need to reset sum and add test of isMagicSquare to for loops
+	 * need to change for loop limit to row and column bounds
 	 */
 	public boolean isMagicSquare(){
 		for(int i = 0; i < squareMembers.length; i++){
