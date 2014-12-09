@@ -1,7 +1,7 @@
 /**
  * 
  * @author Derek Wider and Nick Napior
- *
+ *Magic Square HW
  */
 public class MagicSquareRunner {
 

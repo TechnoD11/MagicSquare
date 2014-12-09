@@ -1,13 +1,14 @@
 /**
  * 
  * @author Derek Wider and Nick Napior
- *
+ * Magic Square HW
  */
 public class MagicSquare {
 	private int[][] squareMembers;
 	private boolean isMagicSquare;
 	private int sum;
 	private int checkSum;
+	private int columnCheckSum;
 	private int ROWS;
 	private int COLUMNS;
 	
@@ -16,78 +17,66 @@ public class MagicSquare {
 		isMagicSquare = true;
 		sum = 0;
 		checkSum = 0;
+		columnCheckSum = 0;
 		ROWS = thisArray.length;
 		COLUMNS = thisArray[0].length;
 	}
-	/**
-	 * 
-	 * @return
-	 * TODO: Need to reset sum and add test of isMagicSquare to for loops
-	 * need to change for loop limit to row and column bounds
-	 */
 	public boolean isMagicSquare(){
 		for(int i = 0; i < squareMembers.length; i++){
 			sum += squareMembers[i][0];
 		}
-		System.out.println(sum);
 		for(int i = 0; i < squareMembers.length; i++){
 			for(int j = 0; j < squareMembers[0].length; j++){
 				checkSum += squareMembers[j][i];
+				columnCheckSum += squareMembers[i][j];
 			}
 			if(sum != checkSum){
 				isMagicSquare = false;
 			}
-			checkSum = 0;
-		}
-		for(int i = 0; i < squareMembers[0].length; i++){
-			for(int j = 0; j < squareMembers.length; j++){
-				checkSum += squareMembers[i][j];
-			}
-			if(sum != checkSum){
+			if(sum != columnCheckSum){
 				isMagicSquare = false;
 			}
 			checkSum = 0;
+			columnCheckSum = 0;
 		}
+		//end row/column code
 		int i = ROWS - 1;
 		int j = COLUMNS - 1;
-		int rowVal = 0;
-		int colVal = 0;
-		for(int k = 0; k < ROWS; k++){
-			while(i != -1 && j != -1){
-				rowVal = (i + k) % ROWS;
-				colVal = (j + k) % COLUMNS;
-				checkSum += squareMembers[rowVal][colVal];
-				i--;
-				j--;
-				System.out.println(checkSum);
-			}
-			if(checkSum != sum){
+		while(i != -1 && j != -1){
+			checkSum += squareMembers[i][j];
+			i--;
+			j--;
+		}	
+		if(checkSum != sum){
 				isMagicSquare = false;
-			}
-			i = ROWS - 1;
-			j = COLUMNS - 1;
-			checkSum = 0;
 		}
-		rowVal = 0;
-		colVal = 0;
 		i = 0;
-		j = 0;
-		/*for(int k = 0; k < squareMembers.length; k++){
-			while(i != ROWS && j != COLUMNS){
-				rowVal = (i + k) % ROWS;
-				colVal = (j + k) % COLUMNS;
-				checkSum += squareMembers[rowVal][colVal];
-				i++;
-				j++;
-				//System.out.println(checkSum);
-			}
-			if(checkSum != sum){
+		j = COLUMNS - 1;
+		while(i != ROWS && j != -1){
+			columnCheckSum += squareMembers[i][j];
+			i++;
+			j--;
+		}	
+		if(columnCheckSum != sum){
 				isMagicSquare = false;
-			}
-			//i = ROWS - 1;
-			//j = COLUMNS - 1;
-			checkSum = 0;
-		}*/
+		}
 		return isMagicSquare;
+	}
+	public int getValue(){
+		sum = 0;
+		for(int i = 0; i < squareMembers.length; i++){
+			sum += squareMembers[i][0];
+		}
+		return sum;
+	}
+	public String toString(){
+		String arrayString = "The Array:\n";
+		for(int i = 0; i < squareMembers.length; i++){
+			for(int j = 0; j < squareMembers[0].length; j++){
+				arrayString += "\t" + squareMembers[i][j];
+			}
+			arrayString += "\n";
+		}
+		return arrayString;
 	}
 }
