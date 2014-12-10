@@ -10,7 +10,7 @@ public class MagicSquare {
 	private int checkSum;
 	private int columnCheckSum;
 	private int ROWS;
-	private int COLUMNS;
+	private int COLUMNS; //instance fields
 	
 	public MagicSquare(int[][] thisArray){
 		squareMembers = thisArray.clone();
@@ -19,13 +19,13 @@ public class MagicSquare {
 		checkSum = 0;
 		columnCheckSum = 0;
 		ROWS = thisArray.length;
-		COLUMNS = thisArray[0].length;
+		COLUMNS = thisArray[0].length; //initialize all the variables 
 	}
-	public boolean isMagicSquare(){
+	public boolean isMagicSquare(){ 
 		for(int i = 0; i < squareMembers.length; i++){
 			sum += squareMembers[i][0];
-		}
-		for(int i = 0; i < squareMembers.length; i++){
+		} //first find the sum of the first row
+		for(int i = 0; i < squareMembers.length; i++){ //then check the rows and columns to see if they equal the sum
 			for(int j = 0; j < squareMembers[0].length; j++){
 				checkSum += squareMembers[j][i];
 				columnCheckSum += squareMembers[i][j];
@@ -42,7 +42,7 @@ public class MagicSquare {
 		//end row/column code
 		int i = ROWS - 1;
 		int j = COLUMNS - 1;
-		while(i != -1 && j != -1){
+		while(i != -1 && j != -1){ //now check the diagonals, first one, than the other
 			checkSum += squareMembers[i][j];
 			i--;
 			j--;
@@ -52,7 +52,7 @@ public class MagicSquare {
 		}
 		i = 0;
 		j = COLUMNS - 1;
-		while(i != ROWS && j != -1){
+		while(i != ROWS && j != -1){ //other diagonal
 			columnCheckSum += squareMembers[i][j];
 			i++;
 			j--;
@@ -62,14 +62,14 @@ public class MagicSquare {
 		}
 		return isMagicSquare;
 	}
-	public int getValue(){
+	public int getValue(){ //gets the sum of the first row
 		sum = 0;
 		for(int i = 0; i < squareMembers.length; i++){
 			sum += squareMembers[i][0];
 		}
 		return sum;
 	}
-	public String toString(){
+	public String toString(){ //adds each array member to a string, then prints it out.
 		String arrayString = "The Array:\n";
 		for(int i = 0; i < squareMembers.length; i++){
 			for(int j = 0; j < squareMembers[0].length; j++){
