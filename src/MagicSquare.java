@@ -13,7 +13,7 @@ public class MagicSquare {
 	private int ROWS;
 	private int COLUMNS; //instance fields
 	
-	//Constructs the square and sets all values to a defualt value to work with
+	//Constructs the square and sets all values to a default value to work with
 	public MagicSquare(int[][] thisArray){
 		squareMembers = thisArray.clone();
 		isMagicSquare = true;
@@ -87,16 +87,7 @@ public class MagicSquare {
 					arrayString += "\n";
 					rowCount = 0;
 				}
-			/*
-				if(rowCount == 4 && squareMembers.length <= 4){
-					arrayString += "\n";
-					rowCount = 0;
-				}
-				if(rowCount == 3 && squareMembers.length <= 3){
-					arrayString += "\n";
-					rowCount = 0;
-				}
-			*/
+
 			}
 		}
 		return arrayString;
