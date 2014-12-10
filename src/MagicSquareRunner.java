@@ -4,16 +4,18 @@
  * Magic Square HW
  *
  */
-public class MagicSquareRunner 
-{
+public class MagicSquareRunner {
 
-	//	A magic square is an arrangement of integers in a square grid, where the numbers 
-	//	in each row, and in each column, and the numbers in the forward and backward main 
-	//	diagonals, all add up to the same number. A magic square has the same number of 
-	//	rows as it has columns.
+	/***************************************************************************************
+	 * 
+	 * A magic square is an arrangement of integers in a square grid, where the numbers 
+	 * in each row, and in each column, and the numbers in the forward and backward main 
+	 * diagonals, all add up to the same number. A magic square has the same number of 
+	 * rows as it has columns.
+	 * 
+	 **************************************************************************************/
 	
-	public static void main(String[] args) 
-	{
+	public static void main(String[] args) {
 		int[][] firstArray = { {16,3,2,13},{ 5,10,11,8 },{ 9,6,7,12 },{ 4,15,14,1}};  // made 9 19
 		int[][] secondArray = { {10,3,2,13},{ 5,10,11,8 },{ 9,6,7,12 },{ 4,15,14,1}};
 		int[][] array3 = { {2,7,6},{ 9,5,1 },{4,3,8 } };
@@ -46,7 +48,7 @@ public class MagicSquareRunner
 	}
 	
 }
-/************** output ************************************************
+/******************************** output ************************************
 				The Array:
 				16	3	2	13	
 				5	10	11	8	
@@ -73,4 +75,4 @@ public class MagicSquareRunner
 				27	20	25	
 				
 				this array is a magic square and its value is 72
-***************************************************************************/
+****************************************************************************/

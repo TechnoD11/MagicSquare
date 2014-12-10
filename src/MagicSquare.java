@@ -3,6 +3,7 @@
  * @author Derek Wider and Nick Napior
  * Magic Square HW
  */
+
 public class MagicSquare {
 	private int[][] squareMembers;
 	private boolean isMagicSquare;
@@ -12,6 +13,7 @@ public class MagicSquare {
 	private int ROWS;
 	private int COLUMNS; //instance fields
 	
+	//Constructs the square and sets all values to a defualt value to work with
 	public MagicSquare(int[][] thisArray){
 		squareMembers = thisArray.clone();
 		isMagicSquare = true;
@@ -21,6 +23,8 @@ public class MagicSquare {
 		ROWS = thisArray.length;
 		COLUMNS = thisArray[0].length; //initialize all the variables 
 	}
+	
+	//Method to check to see if the square is a magic square and returns a true or false
 	public boolean isMagicSquare(){ 
 		for(int i = 0; i < squareMembers.length; i++){
 			sum += squareMembers[i][0];
@@ -69,7 +73,9 @@ public class MagicSquare {
 		}
 		return sum;
 	}
-	public String toString(){ //adds each array member to a string, then prints it out.
+	
+	//Method to add each array member to a string, then prints it out.
+	public String toString(){ 
 		String arrayString = "The Array:\n";
 	/*
 		for(int i = 0; i < squareMembers.length; i++){
