@@ -71,11 +71,36 @@ public class MagicSquare {
 	}
 	public String toString(){ //adds each array member to a string, then prints it out.
 		String arrayString = "The Array:\n";
+	/*
 		for(int i = 0; i < squareMembers.length; i++){
 			for(int j = 0; j < squareMembers[0].length; j++){
 				arrayString += "\t" + squareMembers[i][j];
 			}
 			arrayString += "\n";
+		
+	*/
+		int rowCount = 0;
+		for(int i = 0; i < squareMembers.length; i++){
+			for(int j = 0; j < squareMembers[0].length; j++){
+				arrayString += squareMembers[i][j] + "  ";
+				if(squareMembers[i][j] < 10) arrayString += " "; //Sets up nice format so that if it is missing two places it fills with two spaces
+				rowCount++;
+				//Resets the row count to then move a line
+				if(rowCount == 4){
+					arrayString += "\n";
+					rowCount = 0;
+				}
+			/*
+				if(ROWS == 3 && rowCount == 3){
+					arrayString += "\n";
+					rowCount = 0;
+				}
+				else{
+					arrayString += "\n";
+					rowCount = 0;
+				}
+			*/
+			}
 		}
 		return arrayString;
 	}
